@@ -38,7 +38,21 @@ end, {
   noremap = true,
   desc = "Python venv",
 })
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+-- Map <Esc> to exit terminal mode
+vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
+
+-- Toggleterm specifically
+function _G.set_terminal_keymaps()
+  -- Exit terminal mode
+  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], { buffer = 0 })
+  -- Terminal window navigation
+  vim.keymap.set("t", "<C-h>", [[<C-\><C-n><C-W>h]], { buffer = 0 })
+  vim.keymap.set("t", "<C-j>", [[<C-\><C-n><C-W>j]], { buffer = 0 })
+  vim.keymap.set("t", "<C-k>", [[<C-\><C-n><C-W>k]], { buffer = 0 })
+  vim.keymap.set("t", "<C-l>", [[<C-\><C-n><C-W>l]], { buffer = 0 })
+end
+-- Auto-apply terminal keymaps when Toggleterm opens
+vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 vim.keymap.set("n", "<leader>Tp", function()
   vim.fn.chansend(term_job_id, "python -m pytest\n")
 end, {
