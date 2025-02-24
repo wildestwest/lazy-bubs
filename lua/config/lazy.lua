@@ -51,3 +51,5 @@ require("lazy").setup({
     },
   },
 })
+-- other stuff
+require("config.custom.kube")
