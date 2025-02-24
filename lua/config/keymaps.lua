@@ -62,4 +62,6 @@ end, {
 
 vim.keymap.set("n", "<leader>tc", ":TimerlyToggle<CR>", { desc = "toggle timer" })
 
+vim.keymap.set({ "n", "v" }, "<Del>", [["_d]], { desc = "Delete to void buffer" })
+
 -- Default keymaps to remove
