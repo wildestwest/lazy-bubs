@@ -58,6 +58,7 @@ end, {
 vim.keymap.set("n", "<leader>tc", ":TimerlyToggle<CR>", { desc = "toggle timer" })
 
 vim.keymap.set({ "n", "v" }, "<Del>", [["_d]], { desc = "Delete to void buffer" })
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "copy to sys" })
 
 -- vim.keymap.set({ "n", "v" }, "<leader>yc", [["cy]], { desc = "Delete to void buffer" })
 -- vim.keymap.set({ "n", "v" }, "<leader>yi", [["iy]], { desc = "Delete to void buffer" })
