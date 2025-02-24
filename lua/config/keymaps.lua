@@ -26,7 +26,7 @@ vim.api.nvim_set_keymap(
 local term_job_id = 0
 vim.keymap.set("n", "<leader>TT", function()
   -- vim.cmd.vnew()
-  vim.cmd("ToggleTerm direction=vertical size=80")
+  vim.cmd("ToggleTerm direction=vertical")
   term_job_id = vim.bo.channel
 end, {
   noremap = true,
