@@ -16,12 +16,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Cursor in middle when searching
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>e",
-  [[<cmd>lua require("oil").toggle_float()<CR>]],
-  { noremap = true, silent = true, desc = "Toggle Oil float" }
-)
+vim.keymap.set("n", "<leader>e", ":lua MiniFiles.open()<CR>", { desc = "Open Mini Files" })
 -- open terminal
 local term_job_id = 0
 vim.keymap.set("n", "<leader>TT", function()
@@ -63,5 +58,10 @@ end, {
 vim.keymap.set("n", "<leader>tc", ":TimerlyToggle<CR>", { desc = "toggle timer" })
 
 vim.keymap.set({ "n", "v" }, "<Del>", [["_d]], { desc = "Delete to void buffer" })
+
+-- vim.keymap.set({ "n", "v" }, "<leader>yc", [["cy]], { desc = "Delete to void buffer" })
+-- vim.keymap.set({ "n", "v" }, "<leader>yi", [["iy]], { desc = "Delete to void buffer" })
+-- vim.keymap.set({ "n", "v" }, "<leader>ye", [["ey]], { desc = "Delete to void buffer" })
+-- vim.keymap.set({ "n", "v" }, "<leader>ya", [["ay]], { desc = "Delete to void buffer" })
 
 -- Default keymaps to remove
