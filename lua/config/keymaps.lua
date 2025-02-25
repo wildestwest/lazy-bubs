@@ -17,22 +17,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<leader>e", ":lua MiniFiles.open()<CR>", { desc = "Open Mini Files" })
--- open terminal
-local term_job_id = 0
-vim.keymap.set("n", "<leader>TT", function()
-  -- vim.cmd.vnew()
-  vim.cmd("ToggleTerm direction=vertical")
-  term_job_id = vim.bo.channel
-end, {
-  noremap = true,
-  desc = "Open terminal",
-})
-vim.keymap.set("n", "<leader>Tv", function()
-  vim.fn.chansend(term_job_id, "python -m venv env && source env/bin/activate\n")
-end, {
-  noremap = true,
-  desc = "Python venv",
-})
 -- Map <Esc> to exit terminal mode
 vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
 
@@ -48,12 +32,6 @@ function _G.set_terminal_keymaps()
 end
 -- Auto-apply terminal keymaps when Toggleterm opens
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-vim.keymap.set("n", "<leader>Tp", function()
-  vim.fn.chansend(term_job_id, "python -m pytest\n")
-end, {
-  noremap = true,
-  desc = "pytest",
-})
 
 vim.keymap.set("n", "<leader>tc", ":TimerlyToggle<CR>", { desc = "toggle timer" })
 
