@@ -1,3 +1,9 @@
+local minifiles_toggle = function(...)
+  if not MiniFiles.close() then
+    MiniFiles.open(...)
+  end
+end
+
 return {
   -- "stevearc/oil.nvim",
   -- opts = {
@@ -8,11 +14,14 @@ return {
   -- dependencies = { "nvim-tree/nvim-web-devicons" },
   {
     "echasnovski/mini.files",
-    version = "*",
-    lazy = false,
-    dependencies = { "echasnovski/mini.nvim" },
-    config = function()
-      require("mini.files").setup()
-    end,
+    keys = {
+      {
+        "<leader>e",
+        function()
+          minifiles_toggle(vim.api.nvim_buf_get_name(0), true)
+        end,
+        desc = "Toggle mini.files (Directory of Current File)",
+      },
+    },
   },
 }

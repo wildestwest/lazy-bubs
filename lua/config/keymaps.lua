@@ -16,7 +16,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Cursor in middle when searching
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "<leader>e", ":lua MiniFiles.open()<CR>", { desc = "Open Mini Files" })
 -- Map <Esc> to exit terminal mode
 vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
 
@@ -30,10 +29,6 @@ function _G.set_terminal_keymaps()
   vim.keymap.set("t", "<C-k>", [[<C-\><C-n><C-W>k]], { buffer = 0 })
   vim.keymap.set("t", "<C-l>", [[<C-\><C-n><C-W>l]], { buffer = 0 })
 end
--- Auto-apply terminal keymaps when Toggleterm opens
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-
-vim.keymap.set("n", "<leader>tc", ":TimerlyToggle<CR>", { desc = "toggle timer" })
 
 vim.keymap.set({ "n", "v" }, "<Del>", [["_d]], { desc = "Delete to void buffer" })
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "copy to sys" })
