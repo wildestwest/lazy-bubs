@@ -1,19 +1,6 @@
 -- stuff that really doesnt deserve its own file
 
 return {
-  {
-    "nvzone/timerly",
-    dependencies = {
-      "nvzone/volt",
-    },
-    keys = {
-      {
-        "<leader>tc",
-        ":TimerlyToggle<CR>",
-        desc = "Toggle mini.files (Directory of Current File)",
-      },
-    },
-  },
   { "linux-cultist/venv-selector.nvim", enabled = true },
   {
     "nvim-telescope/telescope.nvim",
@@ -24,10 +11,13 @@ return {
     "folke/tokyonight.nvim",
     opts = {
       transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
+    },
+  },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      keymap = { preset = "default" },
+      signature = { enabled = true },
     },
   },
 }
