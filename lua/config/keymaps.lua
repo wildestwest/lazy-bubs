@@ -17,18 +17,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 -- Map <Esc> to exit terminal mode
-vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
-
--- Toggleterm specifically
-function _G.set_terminal_keymaps()
-  -- Exit terminal mode
-  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], { buffer = 0 })
-  -- Terminal window navigation
-  vim.keymap.set("t", "<C-h>", [[<C-\><C-n><C-W>h]], { buffer = 0 })
-  vim.keymap.set("t", "<C-j>", [[<C-\><C-n><C-W>j]], { buffer = 0 })
-  vim.keymap.set("t", "<C-k>", [[<C-\><C-n><C-W>k]], { buffer = 0 })
-  vim.keymap.set("t", "<C-l>", [[<C-\><C-n><C-W>l]], { buffer = 0 })
-end
+vim.api.nvim_set_keymap("t", "<esc><esc>", [[<C-\><C-n>]], { noremap = true })
 
 vim.keymap.set({ "n", "v" }, "<Del>", [["_d]], { desc = "Delete to void buffer" })
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "copy to sys" })

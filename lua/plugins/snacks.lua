@@ -2,9 +2,6 @@ return {
   {
     "snacks.nvim",
     opts = {
-      explorer = { enabled = false },
-      terminal = { enabled = false },
-      notifier = { enabled = false },
       dashboard = {
         preset = {
           pick = function(cmd, opts)
